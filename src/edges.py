@@ -4,7 +4,7 @@ from os import listdir
 from os.path import isfile,join
 
 #The directory of the images
-imagesDIR = '/Users/Steven/Desktop/Projects/SRP/TrainTracks/'
+imagesDIR = '/Users/Steven/Desktop/Projects/SRP/MonmouthSRPImage/Images/raw_images/'
 #Put image file name into list
 files = [f for f in listdir(imagesDIR) if isfile(join(imagesDIR,f)) and f[len(f)-4:]=='.JPG']
 #Number of current images edged and written
@@ -29,7 +29,7 @@ for file in files:
     edges = cv2.Canny(image,0.66 * mean,1.33 * mean)
 
     #The  path to save the new outline and edged images
-    savepath = '/Users/Steven/Desktop/Projects/SRP/TrainTracks/outlines/'
+    savepath = '/Users/Steven/Desktop/Projects/SRP/MonmouthSRPImage/Images/outlines/'
     #Save the new image
     cv2.imwrite(join(savepath,file),edges)
     #Add one to the current count
