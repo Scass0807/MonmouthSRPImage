@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-img1 = cv2.imread('/Users/Steven/Desktop/Projects/SRP/TrainTracks/outlines/1c78524d-a38c-45bd-b9ff-63b5b1839b33.JPG')
-img2 = cv2.imread('/Users/Steven/Desktop/Projects/SRP/TrainTracks/outlines/1f60bf7e-5135-4d93-9c40-46e7bab59c57.JPG')
+img1 = cv2.imread('C:/Users/geckert/Downloads/chair/6.JPG',0)
+img2 = cv2.imread('C:/Users/geckert/Downloads/chair/7.JPG',0)
 
 orb = cv2.ORB_create()
 
@@ -36,10 +36,8 @@ for mat in matches:
     list_kp1.append((x1, y1))
     list_kp2.append((x2, y2))
 
-print (list_kp1, list_kp2)
+#print (list_kp1, list_kp2)
 
-'''
 img3 = cv2.drawMatches(img1,kp1,img2,kp2, matches[:20], None, flags=2)
 plt.imshow(img3)
 plt.show()
-'''
