@@ -6,10 +6,6 @@ from os import listdir
 from os.path import isfile, join
 import numpy as np
 import re
-def sorted_nicely(name):
-    convert = lambda text: int(text) if text.isdigit() else text
-    alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
-    return sorted(name, key=alphanum_key)
 
 def divided(a):
     position = a.find('/')

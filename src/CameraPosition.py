@@ -1,8 +1,9 @@
 import cv2
 import numpy as np
 import csv
-points1=[]
-points2=[]
+points1=[36.1111, 1866.09]
+points2=[1521.51, 2394.88]
+'''
 with open('/Users/mahmoudshabana/Documents/SRP Files/' +
               'MonmouthSRPImage/src/project_files/24.JPG_14.JPG_matches.csv', newline='') as csvfile:
      spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
@@ -16,13 +17,16 @@ pointCount = 100
 
 
 # initialize the points here ... */
-'''for i in range(0, 100):
+for i in range(0, 100):
     points1.append(
     points2[i] = ...;
 
 
 Mat fundamental_matrix =
  findFundamentalMat(points1, points2, FM_RANSAC, 3, 0.99)
+'''
+#find the camera matrix
+
 
 #find the essential matrix using the results of the fundamental matrix
 # K must be found before hand
