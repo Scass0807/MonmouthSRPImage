@@ -22,26 +22,26 @@ def divided(a):
 subjectdir = 'C:/Users/nianq/Desktop/image recog/TrainTracks/'
 onlyfiles = [f for f in listdir(subjectdir) if isfile(join(subjectdir, f))]
 # output info for each file
-onlyfiles = sorted_nicely(onlyfiles)
+
 cameraMatrix = []
-for fname in onlyfiles:
-    try:
-        img_file = open(subjectdir + fname, 'rb')
-    except IOError:
-        print("unreadable", fname)
-        continue
-    # get the tags
-    data = process_file(img_file)
-    length = divided(data['EXIF ExifImageLength'].printable)
-    width = divided(data['EXIF ExifImageWidth'].printable)
-    focalLength = divided(data['EXIF FocalLength'].printable)
+fname = onlyfiles[0]
+try:
+    img_file = open(subjectdir + fname, 'rb')
+except IOError:
+    print("unreadable", fname)
+
+# get the tags
+data = process_file(img_file)
+length = divided(data['EXIF ExifImageLength'].printable)
+width = divided(data['EXIF ExifImageWidth'].printable)
+focalLength = divided(data['EXIF FocalLength'].printable)
 
 
-    cameraMatrix.append([focalLength,0,length/2])
-    cameraMatrix.append([0, focalLength,  width / 2])
-    cameraMatrix.append([0,0,1])
-    print cameraMatrix
-    cameraMatrix = []
+cameraMatrix.append([focalLength,0,length/2])
+cameraMatrix.append([0, focalLength,  width / 2])
+cameraMatrix.append([0,0,1])
+print (cameraMatrix)
+
 
 
 
