@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import csv
+
 points1=[36.1111, 1866.09]
 points2=[1521.51, 2394.88]
 '''
@@ -26,12 +27,13 @@ Mat fundamental_matrix =
  findFundamentalMat(points1, points2, FM_RANSAC, 3, 0.99)
 '''
 #find the camera matrix
-
+import GetMatrix
+mtx = GetMatrix.cameraMatrix
+print(mtx)
 
 #find the essential matrix using the results of the fundamental matrix
 # K must be found before hand
-Mat essential_matrix =
- findEssentialMat(points1, points2, mtx, RANSAC, 0.99, 1)
+essential_matrix = findEssentialMat(points1, points2, mtx, RANSAC, 0.99, 1)
 
 
 #Compute the Singular Value Decomposition of E
@@ -39,11 +41,10 @@ Mat essential_matrix =
 
 
 #Derive R and Tx from the u, s, and vh
-Mat rotation, translation, R, t, mask
 recoverPose(E, points1, points2, mtx, rotation, translation, mask)
 
 #Retrieve camera position 
 Rodrigues(rotation, R)
 R = zip(*R)
 t = -R * translation
-'''
+
