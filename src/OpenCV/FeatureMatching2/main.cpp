@@ -16,8 +16,8 @@ namespace plt = matplotlibcpp;
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    string img1_name =  "14.JPG";
-    string img2_name = "29.JPG";
+    string img1_name =  "24.JPG";
+    string img2_name = "14.JPG";
     cv::Mat img1 = cv::imread("/Users/Steven/Desktop/Projects/SRP/MonmouthSRPImage/Images/raw_images/"+ img1_name);
     cv::Mat img2 = cv::imread("/Users/Steven/Desktop/Projects/SRP/MonmouthSRPImage/Images/raw_images/" +img2_name );
     
