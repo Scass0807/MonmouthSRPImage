@@ -16,8 +16,8 @@ namespace plt = matplotlibcpp;
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    string img1_name = "24.JPG";
-    string img2_name = "14.JPG";
+    string img1_name =  "14.JPG";
+    string img2_name = "29.JPG";
     cv::Mat img1 = cv::imread("/Users/Steven/Desktop/Projects/SRP/MonmouthSRPImage/Images/raw_images/"+ img1_name);
     cv::Mat img2 = cv::imread("/Users/Steven/Desktop/Projects/SRP/MonmouthSRPImage/Images/raw_images/" +img2_name );
     
@@ -28,8 +28,8 @@ int main(int argc, const char * argv[]) {
     vector<vector<cv::DMatch>> matches;
     sift->detectAndCompute(img1, cv::Mat(), kp1,des1 );
     sift->detectAndCompute(img2, cv::Mat(), kp2, des2);
-    cv::BFMatcher bf(cv::NORM_L2);
-    bf.knnMatch(des1, des2, matches, 2,cv::Mat(),false);
+    cv::FlannBasedMatcher flann;
+    flann.knnMatch(des1, des2, matches, 2);
     vector<cv::DMatch> good;
     for(size_t mIndex = 0;mIndex<matches.size();++mIndex)
     {
@@ -48,7 +48,8 @@ int main(int argc, const char * argv[]) {
         list_kp2.push_back(kp2[img2_idx].pt);
     }
     
-    //cout << list_kp1 << endl << list_kp2 << endl;
+    cout << list_kp1 << endl << list_kp2 << endl;
+    
     string filename = img1_name + "_" + img2_name + "_matches.csv";
     ofstream outputFile;
     outputFile.open(filename);
@@ -61,6 +62,7 @@ int main(int argc, const char * argv[]) {
         cout << list_kp1[index] << ";" <<list_kp2[index] << endl;
     }
     outputFile.close();
+    
     cout << "Done writing file" << endl;
     cv::Mat immatched;
     cv::drawMatches(img1, kp1, img2, kp2, good, immatched);
