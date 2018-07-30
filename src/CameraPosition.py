@@ -5,7 +5,7 @@ from Point2d import Point2d
 import GetMatrix
 points1 = []
 points2 = []
-with open('C:/Users/nianq/OneDrive/Documents/GitHub/MonmouthSRPImage/src/project_files/14.JPG_29.JPG_matches.csv', 'rb') as csvfile:
+with open('C:/Users/nianq/OneDrive/Documents/GitHub/MonmouthSRPImage/src/project_files/24.JPG_14.JPG_matches.csv', 'rb') as csvfile:
      spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
      for row in spamreader:
          points1.append(row[2:4])
