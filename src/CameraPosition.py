@@ -8,7 +8,7 @@ points2 = []
 with open('C:/Users/nianq/OneDrive/Documents/GitHub/MonmouthSRPImage/src/project_files/24.JPG_14.JPG_matches.csv', 'rb') as csvfile:
      spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
      for row in spamreader:
-         points1.append(row[2:4])
+         points1.append(row[0:2])
          points2.append(row[0:2])
 
 points2.pop(0)

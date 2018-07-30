@@ -1,7 +1,8 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
-
+import time
+time1 = time.time()
 img1 = cv2.imread('C:/Users/nianq/Desktop/image recog/celltower/(1).JPG',0)  #queryimage # left image
 img2 = cv2.imread('C:/Users/nianq/Desktop/image recog/celltower/(2).JPG',0) #trainimage # right image
 print img1
@@ -62,7 +63,7 @@ img5,img6 = drawlines(img1,img2,lines1,pts1,pts2)
 lines2 = cv2.computeCorrespondEpilines(pts1.reshape(-1,1,2), 1,F)
 lines2 = lines2.reshape(-1,3)
 img3,img4 = drawlines(img2,img1,lines2,pts2,pts1)
-
+print str(time.time()-time1)
 plt.subplot(121),plt.imshow(img5)
 plt.subplot(122),plt.imshow(img3)
 plt.show()
