@@ -46,10 +46,8 @@ int main(int argc, const char * argv[]) {
         images.push_back(cv::imread(line));
     }
     imgDIRS_File.close();
-    
     cv::Ptr<cv::xfeatures2d::SIFT> sift = cv::xfeatures2d::SIFT::create();
-    
-    for(int image1_index = 58; image1_index <images.size();image1_index++)
+    for(int image1_index = 0; image1_index <images.size();image1_index++)
     {
         cv::Mat image1 = images[image1_index];
         string image1_name = getImageName(files[image1_index]);
@@ -97,7 +95,7 @@ int main(int argc, const char * argv[]) {
             outputFile_1.close();
             outputFile_2 << endl;
             outputFile_2.close();
-            
+            delete sift;
             kp1.clear();
             kp2.clear();
             matches.clear();
@@ -106,6 +104,5 @@ int main(int argc, const char * argv[]) {
     }
     files.clear();
     images.clear();
-    delete sift;
     return 0;
 }
