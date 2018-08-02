@@ -6,13 +6,6 @@ import Height
 fig = pyplot.figure()
 ax = Axes3D(fig)
 
-sequence_containing_x_vals = list(range(0, 100))
-sequence_containing_y_vals = list(range(0, 100))
-sequence_containing_z_vals = list(range(0, 100))
-
-random.shuffle(sequence_containing_x_vals)
-random.shuffle(sequence_containing_y_vals)
-random.shuffle(sequence_containing_z_vals)
 points = Height.GPS
 print points
 for i in range(0,len(points)-1):
