@@ -14,14 +14,22 @@ def divided(a):
     position = a.find('/')
     numerator = a[:position]
     denominator = a[position+1:]
-    return int(int(numerator)/int(denominator))
+    return float(int(numerator)/float(denominator))
 
+def analyze(a):
+    position = a.find(',')
+    a = a [position+1:]
+    position = a.find(',')
+    a = a[position+2:len(a)-1]
+    return divided(a)
 # get the picture
-subjectdir = 'C:/Users/nianq/Desktop/image recog/celltower/'
+subjectdir = 'C:/Users/nianq/Desktop/image recog/compare-histograms-opencv/TrainTracks/'
 onlyfiles = [f for f in listdir(subjectdir) if isfile(join(subjectdir, f))]
 # output info for each file
 onlyfiles = sorted_nicely(onlyfiles)
 height = []
+latitude = []
+longitude = []
 for fname in onlyfiles:
     try:
         img_file = open(subjectdir + fname, 'rb')
@@ -34,10 +42,14 @@ for fname in onlyfiles:
 
     if 'GPS GPSAltitude' in data:
         height.append(divided(data['GPS GPSAltitude'].printable))
+    if 'GPS GPSLatitude' in data:
+        latitude.append(analyze(data['GPS GPSLatitude'].printable))
+    if 'GPS GPSLongitude' in data:
+        longitude.append(analyze(data['GPS GPSLongitude'].printable))
 
 flag = [i for i in range(1,len(onlyfiles)+1)]
-name = [[flag[i]] + [height[i]] for i in range(len(onlyfiles))]
-print name
+GPS = [[flag[i]] + [latitude[i]]+ [longitude[i]] + [height[i]] for i in range(len(onlyfiles))]
+print GPS
 #print  name
 #name.sort(key=lambda x : x[1])
 #print name

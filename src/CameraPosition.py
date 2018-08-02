@@ -39,6 +39,9 @@ R = cv2.Rodrigues(rotation[1])
 translation = cv2.Rodrigues(rotation[2])
 
 R = np.array(R[0]).transpose()
+print "R is"
+print R
+
 t = np.matmul(-1*R, translation[0])
 print t
 
