@@ -8,11 +8,9 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include <opencv2/xfeatures2d/nonfree.hpp>
-#include <matplotlibcpp.h>
 #include <fstream>
 #include<string>
 using namespace std;
-namespace plt = matplotlibcpp;
 
 string getImageName(string path)
 {
