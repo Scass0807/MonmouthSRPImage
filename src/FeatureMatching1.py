@@ -17,7 +17,7 @@ matches = sorted(matches, key = lambda x:x.distance)
 # Initialize lists
 list_kp1 = []
 list_kp2 = []
-
+'''
 # For each match...
 for mat in matches:
     
@@ -35,7 +35,7 @@ for mat in matches:
     list_kp1.append((x1, y1))
     list_kp2.append((x2, y2))
 
-
+'''
 imgORB = cv2.drawMatches(img1,kp1,img2,kp2, matches[:50], None, flags=2)
 
 
@@ -51,6 +51,7 @@ matches = bf.knnMatch(des1,des2, k=2)
 
 # Apply ratio test
 good = []
+
 for m,n in matches:
     if m.distance < 0.75*n.distance:
         good.append([m])
@@ -59,6 +60,7 @@ list_kp1 = []
 list_kp2 = []
 print(len(good))
 # For each match...
+'''
 for mat in good:
     
     # Get the matching keypoints for each of the images
@@ -76,7 +78,7 @@ for mat in good:
     list_kp2.append((x2, y2))
     
 print (list_kp1, list_kp2)
-
+'''
 # cv2.drawMatchesKnn expects list of lists as matches.
 imgSIFT = cv2.drawMatchesKnn(img1,kp1,img2,kp2,good,None,flags=2)
 # Initiate SIFT detector

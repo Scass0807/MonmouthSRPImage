@@ -1,22 +1,15 @@
 from matplotlib import pyplot
 from mpl_toolkits.mplot3d import Axes3D
 import random
-
+import Height
 
 fig = pyplot.figure()
 ax = Axes3D(fig)
 
-sequence_containing_x_vals = list(range(0, 100))
-sequence_containing_y_vals = list(range(0, 100))
-sequence_containing_z_vals = list(range(0, 100))
+points = Height.GPS
+print (points)
+for i in range(0,len(points)-1):
+    ax.scatter(points[i][1],points[i][2],points[i][3])
 
-random.shuffle(sequence_containing_x_vals)
-random.shuffle(sequence_containing_y_vals)
-random.shuffle(sequence_containing_z_vals)
-
-ax.scatter(0.0358, -0.133, 0.089)
-ax.scatter(-0.48, -0.0117, 0.31)
-ax.scatter(0,0,0)
-pyplot.axis([-1, 1, -1, 1])
 
 pyplot.show()

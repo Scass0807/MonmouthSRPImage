@@ -44,9 +44,7 @@ int main(int argc, const char * argv[]) {
         images.push_back(cv::imread(line));
     }
     imgDIRS_File.close();
-    
     cv::Ptr<cv::xfeatures2d::SIFT> sift = cv::xfeatures2d::SIFT::create();
-    
     for(int image1_index = 0; image1_index <images.size();image1_index++)
     {
         cv::Mat image1 = images[image1_index];
@@ -65,11 +63,13 @@ int main(int argc, const char * argv[]) {
             
             string filename_1 = image1_name + ".csv";
             ofstream outputFile_1;
+            outputFile_1.open(filename_1,ios::app);
             outputFile_1 << "x to " + image2_name << "," << "y to " + image2_name << endl;
             outputFile_1 << endl;
             
             string filename_2 = image2_name + ".csv";
             ofstream outputFile_2;
+            outputFile_2.open(filename_2,ios::app);
             outputFile_2 << "x to " + image1_name << "," << "y to " + image1_name << endl;
             outputFile_2 << endl;
             cv:: DMatch goodMatch;
@@ -93,7 +93,7 @@ int main(int argc, const char * argv[]) {
             outputFile_1.close();
             outputFile_2 << endl;
             outputFile_2.close();
-            
+            delete sift;
             kp1.clear();
             kp2.clear();
             matches.clear();
@@ -102,6 +102,5 @@ int main(int argc, const char * argv[]) {
     }
     files.clear();
     images.clear();
-    delete sift;
     return 0;
 }
