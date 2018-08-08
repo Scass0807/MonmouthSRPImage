@@ -16,6 +16,7 @@ def FindImage(x,y,z):
             return points[i][0]
     return 'Not found'
 
+ax2 = pyplot.subplot2grid((4,10),(0,6),rowspan =4,colspan=4)
 highlight = ax.scatter([], [],[],color='blue')               
 def onpick(event):
     global imagePath
