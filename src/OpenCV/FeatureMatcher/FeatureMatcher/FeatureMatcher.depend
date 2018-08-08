@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1532977946 source:c:\users\monmouth 001\documents\github\monmouthsrpimage\src\opencv\featurematcher\featurematcher\main.cpp
+	<iostream>
+	<opencv2/opencv.hpp>
+	<opencv2/xfeatures2d/nonfree.hpp>
+	<fstream>
+	<string>
+

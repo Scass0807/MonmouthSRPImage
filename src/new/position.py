@@ -26,8 +26,8 @@ def getPosition(a, b):
     # Example. Estimation of fundamental matrix using the RANSAC algorithm
 
     # find the camera matrix
-    points1 = zip(x1,y1)
-    points2 = zip(x2,y2)
+    points1 = list(zip(x1,y1))
+    points2 = list(zip(x2,y2))
     mtx = getMatrix.cameraMatrix
     mtx = np.array(mtx,dtype = np.float32)
     points1 = np.array(points1,dtype = np.float32)
