@@ -41,16 +41,24 @@ for fname in onlyfiles:
     data = process_file(img_file)
 
     if 'GPS GPSAltitude' in data:
-        height.append(divided(data['GPS GPSAltitude'].printable))
+        ref = int(data['GPS GPSAltitudeRef'].printable)
+        if ref==1:
+            height.append(-1 *(divided(data['GPS GPSAltitude'].printable)))
+        else:              
+            height.append(divided(data['GPS GPSAltitude'].printable))
     if 'GPS GPSLatitude' in data:
         latitude.append(analyze(data['GPS GPSLatitude'].printable))
     if 'GPS GPSLongitude' in data:
         longitude.append(analyze(data['GPS GPSLongitude'].printable))
 
-flag = [i for i in range(1,len(onlyfiles)+1)]
+flag = []
+for fname in onlyfiles:
+    flag.append(fname)
 GPS = [[flag[i]] + [latitude[i]]+ [longitude[i]] + [height[i]] for i in range(len(onlyfiles))]
 print(GPS)
+
 #print  name
 #name.sort(key=lambda x : x[1])
 #print name
+
 ##
