@@ -14,9 +14,9 @@ random.shuffle(sequence_containing_x_vals)
 random.shuffle(sequence_containing_y_vals)
 random.shuffle(sequence_containing_z_vals)
 points = Height.GPS
-print points
+
 for i in range(0,len(points)-1):
     ax.scatter(points[i][1],points[i][2],points[i][3])
-
+    print (i)
 
 pyplot.show()

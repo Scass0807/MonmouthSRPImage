@@ -1,7 +1,6 @@
-files = open("C:/Users/nianq/OneDrive/Documents/GitHub/MonmouthSRPImage/src/project_files/OriginalTowerMatches.txt", "r")
+files = open("C:/Users/Monmouth 001/Documents/GitHub/MonmouthSRPImage/src/project_files/OriginalTowerMatches.txt", "r")
 data = files.readlines()
 
-position = '12 C:\\Users\\Monmouth 001\\Desktop\\tower\\13.JPG\n' in data
 
 def getN(name):
     if '\\' in name:

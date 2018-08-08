@@ -23,7 +23,7 @@ def analyze(a):
     a = a[position+2:len(a)-1]
     return divided(a)
 # get the picture
-subjectdir = 'C:/Users/nianq/Desktop/image recog/compare-histograms-opencv/TrainTracks/'
+subjectdir = 'C:/Users/Monmouth 001/Documents/GitHub/MonmouthSRPImage/Images/raw_images/'
 onlyfiles = [f for f in listdir(subjectdir) if isfile(join(subjectdir, f))]
 # output info for each file
 onlyfiles = sorted_nicely(onlyfiles)
@@ -49,7 +49,7 @@ for fname in onlyfiles:
 
 flag = [i for i in range(1,len(onlyfiles)+1)]
 GPS = [[flag[i]] + [latitude[i]]+ [longitude[i]] + [height[i]] for i in range(len(onlyfiles))]
-print GPS
+
 #print  name
 #name.sort(key=lambda x : x[1])
 #print name

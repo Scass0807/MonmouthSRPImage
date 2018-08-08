@@ -19,7 +19,7 @@ def divided(a):
         denominator = 0.1
     return float(float(numerator)/float(denominator))
 # get the picture
-subjectdir = 'C:/Users/nianq/Desktop/image recog/TrainTracks/'
+subjectdir = 'C:/Users/Monmouth 001/Documents/GitHub/MonmouthSRPImage/Images/raw_images/'
 onlyfiles = [f for f in listdir(subjectdir) if isfile(join(subjectdir, f))]
 # output info for each file
 
