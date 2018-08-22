@@ -23,7 +23,7 @@ def analyze(a):
     a = a[position+2:len(a)-1]
     return divided(a)
 # get the picture
-subjectdir = 'C:/Users/Monmouth 001/Documents/GitHub/MonmouthSRPImage/Images/raw_images/'
+subjectdir = '/Users/Steven/Desktop/Projects/SRP/MonmouthSRPImage/Images/raw_images/'
 onlyfiles = [f for f in listdir(subjectdir) if isfile(join(subjectdir, f)) and f[len(f)-4:]=='.JPG']
 # output info for each file
 onlyfiles = sorted_nicely(onlyfiles)

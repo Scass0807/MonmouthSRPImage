@@ -3,6 +3,7 @@ from matplotlib import pyplot
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 import os
+import platform
 import Height
 import subprocess
 fig = pyplot.figure()
@@ -20,14 +21,10 @@ def FindImage(x,y,z):
             return points[i][0]
     return 'Not found'
 
-<<<<<<< HEAD
-ax2 = pyplot.subplot2grid((4,10),(0,6),rowspan =4,colspan=4)
-highlight = ax.scatter([], [],[],color='blue')               
-=======
+
 highlight = ax.scatter([], [],[],color='blue')
 
 
->>>>>>> 80a9b1a63186d41af5273783794867de6210b530
 def onpick(event):
     global imagePath
     global highlight
@@ -42,10 +39,15 @@ def onpick(event):
     if selectedImageName != 'Not found':
         selectedImageName = imagePath + selectedImageName
         print(selectedImageName)
-        os.system("taskkill /f /im Microsoft.Photos.exe /t")
         file = selectedImageName
-        os.system('"' + file + '"')
+        if platform.system() == 'Windows':
+            os.system("taskkill /f /im Microsoft.Photos.exe /t")
+            os.system('"' + file + '"')
+        elif platform.system() == 'Darwin':
+            os.system("osascript -e 'quit app \"Preview\"'")
+            os.system("open " + file)
 
     pyplot.draw()
 fig.canvas.mpl_connect('pick_event', onpick)
 pyplot.show()
+
